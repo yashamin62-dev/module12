@@ -1,0 +1,13 @@
+{
+  "name": "devops-module12",
+  "version": "1.0.0",
+  "description": "Module 12 DevOps CI/CD demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
