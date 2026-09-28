@@ -33,3 +33,40 @@ spec:
 
         - name: FEATURE_ENABLED
           value: "false"
+---
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: devops-green
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: devops-demo
+      version: green
+
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+        version: green
+
+    spec:
+      containers:
+      - name: devops-demo
+
+        image: yashamin62/devops-module12:2
+
+        ports:
+        - containerPort: 3000
+
+        env:
+        - name: VERSION
+          value: "v2"
+
+        - name: FEATURE_ENABLED
+          value: "true"
