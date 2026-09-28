@@ -70,3 +70,22 @@ spec:
 
         - name: FEATURE_ENABLED
           value: "true"
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: devops-demo-service
+
+spec:
+  type: NodePort
+
+  selector:
+    app: devops-demo
+    version: blue
+
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30080
