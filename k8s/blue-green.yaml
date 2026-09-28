@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: devops-blue
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: devops-demo
+      version: blue
+
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+        version: blue
+
+    spec:
+      containers:
+      - name: devops-demo
+
+        image: yashamin62/devops-module12:1
+
+        ports:
+        - containerPort: 3000
+
+        env:
+        - name: VERSION
+          value: "v1"
+
+        - name: FEATURE_ENABLED
+          value: "false"
